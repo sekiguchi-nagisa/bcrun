@@ -4,5 +4,5 @@ This project is heavily based on  [bash-completion](https://github.com/scop/bash
 
 ## Usage
 ```
-bash bcrun [full path of completion script] [target completion function] [comp line]
+bcrun [full path of completion script] [target completion function] [comp line]
 ```
