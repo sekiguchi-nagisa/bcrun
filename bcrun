@@ -4,13 +4,21 @@
 #
 # based on (https://github.com/git/git/blob/master/contrib/completion/git-completion.tcsh)
 
-# usage: $0 [full path of completion] [tatget function] [comp line]
+# usage: $0 [full path of bash_completion] [full path of completion script] [target function] [comp line]
 
+
+# load `bash_completion`
+complete() { true; }   # ignore `complete` function
+BASH_COMPLETION_COMPAT_DIR=/dev/null
+BASH_COMPLETION_USER_FILE=/dev/null
 source "$1"
 
-COMP_WORDS=($3)
+# load completion script
+source "$2"
 
-if [ "${3: -1}" == " " ]; then
+# load comp line
+COMP_WORDS=($4)
+if [ "${4: -1}" == " " ]; then
 	# The last character is a space, so our location is at the end
 	# of the command-line array
 	COMP_CWORD=${#COMP_WORDS[@]}
@@ -20,8 +28,12 @@ else
 	# count by 1
 	COMP_CWORD=$((${#COMP_WORDS[@]}-1))
 fi
+COMP_LINE="$4"
+COMP_POINT=${#COMP_LINE}
 
-eval "$2"
+
+# call completion function
+eval "$3"
 
 IFS=$'\n'
 echo "${COMPREPLY[*]}"
