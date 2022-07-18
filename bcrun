@@ -9,6 +9,7 @@
 
 # load `bash_completion`
 complete() { true; }   # ignore `complete` function
+compopt() { true; }    # FIXME: emulate `-o option`
 BASH_COMPLETION_COMPAT_DIR=/dev/null
 BASH_COMPLETION_USER_FILE=/dev/null
 source "$1"
