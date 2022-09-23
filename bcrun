@@ -1,9 +1,11 @@
 #!/bin/bash
-
-# bash completion runner
 #
-# based on (https://github.com/git/git/blob/master/contrib/completion/git-completion.tcsh)
-
+# Copyright (C) 2022 Nagisa Sekiguchi
+# Distributed under the GNU General Public License, version 2.0.
+#
+# Conceptually based on git-completion.tcsh (https://github.com/git/git/blob/master/contrib/completion/git-completion.tcsh)
+# Run and get result of bash completion script (also support bash-completion aware script)
+#
 # usage: $0 [full path of bash_completion] [full path of completion script] [target function] [comp line]
 
 
